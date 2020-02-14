@@ -27,7 +27,7 @@ const styles = theme => ({
   },
 });
 
-class ApiDemo extends Component {
+class ForecastPage extends Component {
   
   constructor(props) {
     super(props)
@@ -104,8 +104,8 @@ class ApiDemo extends Component {
   }
 }
 
-ApiDemo.propTypes = {
+ForecastPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ApiDemo);
+export default connect(mapStateToProps)(withStyles(styles)(ForecastPage));
