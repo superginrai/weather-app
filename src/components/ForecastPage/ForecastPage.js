@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import './App.css';
+//import './App.css';
 
 const styles = theme => ({
   root: {
@@ -26,6 +26,14 @@ const styles = theme => ({
       color: theme.palette.text.secondary,
   },
 });
+
+const mapReduxStateToProps = state => ({
+    searchResults: state.searchResults.data,
+});
+
+// const mapReduxStateToProps = (reduxState) => (
+//     { reduxState }
+// );
 
 class ForecastPage extends Component {
   
@@ -46,25 +54,43 @@ class ForecastPage extends Component {
   }
 
 
-  apiCall = () => {
+  apiCall = event => {
     
-    let apiKey = '696e9369164547f080e155915201402';
+    // let apiKey = '696e9369164547f080e155915201402';
 
-    axios({
-        url: `http://api.weatherapi.com/v1/current.json?key=696e9369164547f080e155915201402&q=${this.state.search}`,
-        method: 'GET',
-    })
-        .then(response => {
-            let weather = response.data.current.temp_f;
-            console.log(response.data);
-            console.log(weather);
-            this.setState({
-                tempF: weather,
-            });
-        })
-        .catch(err => {
-            console.error(err);
-        });
+    // axios({
+    //     url: `http://api.weatherapi.com/v1/current.json?key=696e9369164547f080e155915201402&q=${this.state.search}`,
+    //     method: 'GET',
+    // })
+    //     .then(response => {
+    //         let weather = response.data.current.temp_f;
+    //         console.log(response.data);
+    //         console.log(weather);
+    //         this.setState({
+    //             tempF: weather,
+    //         });
+    //     })
+    //     .catch(err => {
+    //         console.error(err);
+    //     });
+    event.preventDefault();
+    const action = { type: 'SEARCH_WEATHER_API', payload: this.state.search, };
+    this.props.dispatch(action);
+    console.log(action);
+    console.log(this.state.search);
+    this.setState({
+   
+            search: '',
+        
+    });
+
+        // const action = { type: 'SEARCH_WEATHER_API', payload: this.state.search }
+        // this.props.dispatch(action);
+        // console.log(this.props.reduxState.weather);
+        // console.log(this.state.search);
+        // this.setState({
+        //     search: '',    
+        //});
   };
 
   render() {
@@ -94,7 +120,10 @@ class ForecastPage extends Component {
                     SEARCH LOCATION</Button>
             </Grid>
         </form>
-        The temperature is {this.state.tempF} degrees F right now!
+        {/* The temperature is {this.props.searchResultsmap(result =>
+                            <li> key={result.id} result={result}/>)} degrees F right now! */}
+        {/* <ul> { this.state.searchResults.map((item, index) => (<li key={index}>{item}</li>)) }</ul> */}
+        {/* <ul>{this.props.searchResults.data.current.temp_f}</ul> */}
 
     </Paper>
 </Grid>
@@ -108,4 +137,4 @@ ForecastPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(ForecastPage));
+export default connect(mapReduxStateToProps)(withStyles(styles)(ForecastPage));
