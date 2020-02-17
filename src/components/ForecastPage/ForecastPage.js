@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import ResultWeather from '../ResultWeather/ResultWeather'
 //import './App.css';
 
 const styles = theme => ({
@@ -28,7 +29,7 @@ const styles = theme => ({
 });
 
 const mapReduxStateToProps = state => ({
-    searchResults: state.searchResults.data,
+    searchResults: state.searchResults.searchResults,
 });
 
 // const mapReduxStateToProps = (reduxState) => (
@@ -112,19 +113,22 @@ class ForecastPage extends Component {
                 <FormControl>
                     <InputLabel htmlFor="apiSearch">
                         Search:</InputLabel>
-                        <Input className="input" onChange={this.handleSearch()} value={this.state.search} placeholder='location' />
+                        <Input className="input" onChange={this.handleSearch()} value={this.state.search} placeholder='city' />
                 </FormControl>
             </Grid>
             <Grid item xs style={{ marginTop: 35 }}>
                 <Button variant="contained" size="large" color="primary" type="submit">
-                    SEARCH LOCATION</Button>
+                    GET FORECAST</Button>
             </Grid>
         </form>
         {/* The temperature is {this.props.searchResultsmap(result =>
-                            <li> key={result.id} result={result}/>)} degrees F right now! */}
-        {/* <ul> { this.state.searchResults.map((item, index) => (<li key={index}>{item}</li>)) }</ul> */}
-        {/* <ul>{this.props.searchResults.data.current.temp_f}</ul> */}
-
+                             <li> key={result.id} result={result}/>)} degrees F right now!  */}
+           {/* <ul> { this.props.searchResults.map (item => <li key={item.id}>{item.data.current.temp_f} tacos</li>) }</ul> */}
+           {/* <ul>{this.props.searchResults.searchResults.data.current.temp_f}</ul> */}
+           <ul>
+                        {this.props.searchResults.map(result =>
+                            <ResultWeather key={result.id} result={result} />)}
+                    </ul>
     </Paper>
 </Grid>
 </div>
