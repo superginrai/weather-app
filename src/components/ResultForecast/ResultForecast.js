@@ -33,9 +33,9 @@ class ForecastCard extends Component {
         this.state = {
             weather: {
                 date: (this.props.result.data.forecast.forecastday[this.props.day].date).slice(5),
+                icon: this.props.result.data.forecast.forecastday[this.props.day].day.condition.icon,
                 minTemp: this.props.result.data.forecast.forecastday[this.props.day].day.mintemp_f,
                 maxTemp: this.props.result.data.forecast.forecastday[this.props.day].day.maxtemp_f,
-                // condition: this.props.result.data.current.condition.text,
                 
             }
         }
@@ -55,6 +55,7 @@ class ForecastCard extends Component {
                         <Typography gutterBottom variant="headline" component="h3">
                             {this.state.weather.date}
                         </Typography>
+                        <img src={this.state.weather.icon} alt="condition icon"></img>
                         <Typography gutterBottom variant="headline" component="h4">
                             High: {this.state.weather.maxTemp}&#176;
                             Low: {this.state.weather.minTemp}&#176;

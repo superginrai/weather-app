@@ -116,9 +116,11 @@ class ForecastPage extends Component {
                         Search:</InputLabel>
                         <Input className="input" onChange={this.handleSearch()} value={this.state.search} placeholder='city' />
                 </FormControl>
+                {/* <Button variant="contained" size="small" color="primary" type="submit">
+                    GET FORECAST</Button> */}
             </Grid>
             <Grid item xs style={{ marginTop: 35 }}>
-                <Button variant="contained" size="large" color="primary" type="submit">
+                <Button variant="contained" size="small" color="primary" type="submit">
                     GET FORECAST</Button>
             </Grid>
         </form>
@@ -128,7 +130,7 @@ class ForecastPage extends Component {
            {/* <ul>{this.props.searchResults.searchResults.data.current.temp_f}</ul> */}
                     <ul>
                         {this.props.searchResults.map(result =>
-                            <ResultWeather key={result.id} result={result} />)}
+                            <ResultWeather key={result.id} result={result} day={0}/>)}
                     </ul>
             <Grid container spacing={3}>    
                 <Grid item xs={3}>

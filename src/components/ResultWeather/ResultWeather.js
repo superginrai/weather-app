@@ -36,6 +36,9 @@ class WeatherCard extends Component {
                 region: this.props.result.data.location.region,
                 temp: this.props.result.data.current.temp_f,
                 condition: this.props.result.data.current.condition.text,
+                icon: this.props.result.data.current.condition.icon,
+                minTemp: this.props.result.data.forecast.forecastday[this.props.day].day.mintemp_f,
+                maxTemp: this.props.result.data.forecast.forecastday[this.props.day].day.maxtemp_f,
                 
 
                 // image_url: 'images/vitaLove.jpg',
@@ -61,11 +64,16 @@ class WeatherCard extends Component {
                         <Typography gutterBottom variant="headline" component="h2">
                             {this.state.weather.location}, {this.state.weather.region}
                         </Typography>
+                        <img src={this.state.weather.icon} alt="condition icon"></img>
                         <Typography gutterBottom variant="headline" component="h4">
                             {this.state.weather.condition}
                         </Typography>
                         <Typography gutterBottom variant="headline" component="h3">
                             {this.state.weather.temp}&#176;
+                        </Typography>
+                        <Typography gutterBottom variant="headline" component="h4">
+                            High: {this.state.weather.maxTemp}&#176;
+                            Low: {this.state.weather.minTemp}&#176;
                         </Typography>
                         <CardActions>
                             {/* <Button onClick={this.props.addNewGame(this.state.game)} variant="fab" color="primary" className={classes.button}>
