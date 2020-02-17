@@ -32,7 +32,9 @@ class ForecastCard extends Component {
         super(props)
         this.state = {
             weather: {
-                maxTemp: this.props.result.data.forecast.forecastday[1].day.maxtemp_f,
+                date: (this.props.result.data.forecast.forecastday[this.props.day].date).slice(5),
+                minTemp: this.props.result.data.forecast.forecastday[this.props.day].day.mintemp_f,
+                maxTemp: this.props.result.data.forecast.forecastday[this.props.day].day.maxtemp_f,
                 // condition: this.props.result.data.current.condition.text,
                 
             }
@@ -50,14 +52,12 @@ class ForecastCard extends Component {
                         // title={this.state.game.summary}
                     />
                     <CardContent>
-                        {/* <Typography gutterBottom variant="headline" component="h2">
-                            {this.state.weather.location}, {this.state.weather.region}
+                        <Typography gutterBottom variant="headline" component="h3">
+                            {this.state.weather.date}
                         </Typography>
                         <Typography gutterBottom variant="headline" component="h4">
-                            {this.state.weather.condition}
-                        </Typography> */}
-                        <Typography gutterBottom variant="headline" component="h3">
-                            {this.state.weather.maxTemp}&#176;
+                            High: {this.state.weather.maxTemp}&#176;
+                            Low: {this.state.weather.minTemp}&#176;
                         </Typography>
                         <CardActions>
                             {/* <Button onClick={this.props.addNewGame(this.state.game)} variant="fab" color="primary" className={classes.button}>

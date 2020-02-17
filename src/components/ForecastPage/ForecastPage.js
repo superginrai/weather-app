@@ -130,10 +130,26 @@ class ForecastPage extends Component {
                         {this.props.searchResults.map(result =>
                             <ResultWeather key={result.id} result={result} />)}
                     </ul>
+            <Grid container spacing={3}>    
+                <Grid item xs={3}>
                     <ul>
                         {this.props.searchResults.map(result =>
-                            <ResultForecast key={result.id} result={result} />)}
+                            <ResultForecast key={result.id} result={result} day={1}/>)}
                     </ul>
+                </Grid>
+                <Grid item xs={3}>
+                    <ul>
+                        {this.props.searchResults.map(result =>
+                            <ResultForecast key={result.id} result={result} day={2}/>)}
+                    </ul>
+                </Grid>
+                <Grid item xs={3}>
+                    <ul>
+                        {this.props.searchResults.map(result =>
+                            <ResultForecast key={result.id} result={result} day={3}/>)}
+                    </ul>
+                </Grid>
+            </Grid>
     </Paper>
 </Grid>
 </div>
