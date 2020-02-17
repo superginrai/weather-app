@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ResultWeather from '../ResultWeather/ResultWeather'
+import ResultForecast from '../ResultForecast/ResultForecast'
 //import './App.css';
 
 const styles = theme => ({
@@ -125,9 +126,13 @@ class ForecastPage extends Component {
                              <li> key={result.id} result={result}/>)} degrees F right now!  */}
            {/* <ul> { this.props.searchResults.map (item => <li key={item.id}>{item.data.current.temp_f} tacos</li>) }</ul> */}
            {/* <ul>{this.props.searchResults.searchResults.data.current.temp_f}</ul> */}
-           <ul>
+                    <ul>
                         {this.props.searchResults.map(result =>
                             <ResultWeather key={result.id} result={result} />)}
+                    </ul>
+                    <ul>
+                        {this.props.searchResults.map(result =>
+                            <ResultForecast key={result.id} result={result} />)}
                     </ul>
     </Paper>
 </Grid>

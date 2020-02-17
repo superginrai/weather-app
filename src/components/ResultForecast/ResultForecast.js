@@ -27,22 +27,14 @@ const mapStateToProps = state => ({
 
 });
 
-class WeatherCard extends Component {
+class ForecastCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
             weather: {
-                location: this.props.result.data.location.name,
-                region: this.props.result.data.location.region,
-                temp: this.props.result.data.current.temp_f,
-                condition: this.props.result.data.current.condition.text,
+                maxTemp: this.props.result.data.forecast.forecastday[1].day.maxtemp_f,
+                // condition: this.props.result.data.current.condition.text,
                 
-
-                // image_url: 'images/vitaLove.jpg',
-                // genre_id: this.props.result.genres[0],
-                // description: this.props.result.summary,
-                // complete: false,
-                // sealed: false,
             }
         }
     }
@@ -58,14 +50,14 @@ class WeatherCard extends Component {
                         // title={this.state.game.summary}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="headline" component="h2">
+                        {/* <Typography gutterBottom variant="headline" component="h2">
                             {this.state.weather.location}, {this.state.weather.region}
                         </Typography>
                         <Typography gutterBottom variant="headline" component="h4">
                             {this.state.weather.condition}
-                        </Typography>
+                        </Typography> */}
                         <Typography gutterBottom variant="headline" component="h3">
-                            {this.state.weather.temp}&#176;
+                            {this.state.weather.maxTemp}&#176;
                         </Typography>
                         <CardActions>
                             {/* <Button onClick={this.props.addNewGame(this.state.game)} variant="fab" color="primary" className={classes.button}>
@@ -80,8 +72,8 @@ class WeatherCard extends Component {
     }
 }
 
-WeatherCard.propTypes = {
+ForecastCard.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(WeatherCard));
+export default connect(mapStateToProps)(withStyles(styles)(ForecastCard));
