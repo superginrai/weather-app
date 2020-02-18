@@ -24,7 +24,7 @@ const styles = theme => ({
       alignItems: 'center',
       padding: theme.spacing(3),
       textAlign: 'center',
-      marginTop: '185px',
+      marginTop: '50px',
       color: theme.palette.text.secondary,
   },
 });
@@ -43,7 +43,6 @@ class ForecastPage extends Component {
     super(props)
 
     this.state = {
-        tempF: [],
         search: '',
     };
 }
@@ -75,6 +74,7 @@ class ForecastPage extends Component {
     //     .catch(err => {
     //         console.error(err);
     //     });
+
     event.preventDefault();
     const action = { type: 'SEARCH_WEATHER_API', payload: this.state.search, };
     this.props.dispatch(action);
@@ -93,6 +93,7 @@ class ForecastPage extends Component {
         // this.setState({
         //     search: '',    
         //});
+
   };
 
   render() {
@@ -107,8 +108,9 @@ class ForecastPage extends Component {
           // </div>
 
 <div className={classes.root}>
-<Grid container spacing={8} justify={'center'}>
+<Grid container spacing={3} justify={'center'}>
     <Paper alignitems={'center'} className={classes.paper}>
+    {/* <Grid container spacing={3} alignitems={'center'}>      */}
         <form onSubmit={this.apiCall}>
             <Grid item xs>
                 <FormControl>
@@ -116,23 +118,26 @@ class ForecastPage extends Component {
                         Search:</InputLabel>
                         <Input className="input" onChange={this.handleSearch()} value={this.state.search} placeholder='city' />
                 </FormControl>
-                {/* <Button variant="contained" size="small" color="primary" type="submit">
-                    GET FORECAST</Button> */}
             </Grid>
             <Grid item xs style={{ marginTop: 35 }}>
                 <Button variant="contained" size="small" color="primary" type="submit">
                     GET FORECAST</Button>
             </Grid>
         </form>
+
         {/* The temperature is {this.props.searchResultsmap(result =>
                              <li> key={result.id} result={result}/>)} degrees F right now!  */}
            {/* <ul> { this.props.searchResults.map (item => <li key={item.id}>{item.data.current.temp_f} tacos</li>) }</ul> */}
            {/* <ul>{this.props.searchResults.searchResults.data.current.temp_f}</ul> */}
+
+        <Grid container spacing={3} alignitems={'center'}>       
+            <Grid item xs={12}>
                     <ul>
                         {this.props.searchResults.map(result =>
                             <ResultWeather key={result.id} result={result} day={0}/>)}
                     </ul>
-            <Grid container spacing={3}>    
+            </Grid>
+
                 <Grid item xs={3}>
                     <ul>
                         {this.props.searchResults.map(result =>
@@ -152,6 +157,7 @@ class ForecastPage extends Component {
                     </ul>
                 </Grid>
             </Grid>
+        {/* </Grid> */}
     </Paper>
 </Grid>
 </div>

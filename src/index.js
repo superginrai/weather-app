@@ -6,12 +6,10 @@ import App from './App';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { takeEvery, call, put as dispatch } from 'redux-saga/effects';
 import { Provider } from 'react-redux';
-//import logger from 'redux-logger';
 import * as serviceWorker from './serviceWorker';
 
 
 import createSagaMiddleware from 'redux-saga';
-//import logger from 'redux-logger';
 
 import reducer from './redux/reducers';
 
