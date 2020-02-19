@@ -5,25 +5,35 @@ import ForecastPage from './components/ForecastPage/ForecastPage';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <Switch>
-            <Redirect exact from="/" to="/forecast" />
-            <Route
-              path="/search"
-              component={SearchPage} />
-            <Route
-              path="/forecast"
-              component={ForecastPage} />
-          </Switch>
-        </Router>
+// class App extends Component {
+//   render() {
+//     return (
+//       <div className="App">
+//         <Router>
+//           <Switch>
+//             <Redirect exact from="/" to="/forecast" />
+//             <Route
+//               path="/search"
+//               component={SearchPage} />
+//             <Route
+//               path="/forecast"
+//               component={ForecastPage} />
+//           </Switch>
+//         </Router>
 
-      </div>
-    );
-  }
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+function App() {
+  return (
+    <div className="App">
+      <ForecastPage></ForecastPage>
+    </div>
+  );
 }
 
 export default App;
