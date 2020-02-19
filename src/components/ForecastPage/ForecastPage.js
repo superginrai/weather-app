@@ -27,6 +27,7 @@ const styles = theme => ({
   },
 });
 
+
 const mapReduxStateToProps = state => ({
     searchResults: state.searchResults.searchResults,
 });
@@ -40,7 +41,8 @@ class ForecastPage extends Component {
         search: '',
     };
 }
-
+  
+  //Updates the value of this.state.search in real time as the user inputs the "Search" field 
   handleSearch = () => event => {
     this.setState({
         ...this.state.search,
@@ -48,7 +50,7 @@ class ForecastPage extends Component {
     });
   }
 
-
+  //Sends the current value of this.state.search to redux to make a call to WeatherAPI.com
   apiCall = event => {
     event.preventDefault();
     const action = { type: 'SEARCH_WEATHER_API', payload: this.state.search, };
@@ -72,7 +74,7 @@ class ForecastPage extends Component {
                             <FormControl>
                                 <InputLabel htmlFor="apiSearch">
                                     Search:</InputLabel>
-                                    <Input className="input" onChange={this.handleSearch()} value={this.state.search} placeholder='city' />
+                                    <Input className="input" onChange={this.handleSearch()} value={this.state.search} placeholder='city or zip' />
                             </FormControl>
                         </Grid>
                         <Grid item xs style={{ marginTop: 35 }}>
@@ -83,10 +85,10 @@ class ForecastPage extends Component {
 
                     <Grid container spacing={3} alignitems={'center'}>       
                         <Grid item xs={12}>
-                                <ul>
-                                    {this.props.searchResults.map(result =>
-                                        <ResultWeather key={result.id} result={result} day={0}/>)}
-                                </ul>
+                            <ul>
+                                {this.props.searchResults.map(result =>
+                                    <ResultWeather key={result.id} result={result} day={0}/>)}
+                            </ul>
                         </Grid>
                         <Grid item xs={3}>
                             <ul>

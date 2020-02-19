@@ -22,6 +22,8 @@ const styles = theme => ({
 const mapStateToProps = state => ({
 });
 
+
+//Builds and renders a MaterialUI card of a forecast day for display on the DOM
 class ForecastCard extends Component {
     constructor(props) {
         super(props)

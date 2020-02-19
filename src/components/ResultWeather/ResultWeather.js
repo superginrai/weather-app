@@ -25,6 +25,8 @@ const mapStateToProps = state => ({
 
 });
 
+
+//Builds and renders a MaterialUI card of current weather conditions for display on the DOM
 class WeatherCard extends Component {
     constructor(props) {
         super(props)

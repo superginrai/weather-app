@@ -4,6 +4,5 @@ import searchApiSaga from './searchApiSaga';
 export default function* rootSaga() {
   yield all([
     searchApiSaga(),
-    // watchIncrementAsync()
   ]);
 }

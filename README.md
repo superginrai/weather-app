@@ -2,6 +2,10 @@
 
 - **Cory Booth**
 
+App is hosted at: https://superginrai.github.io/weather-app/
+
+Before running the app, copy your API key for WeatherAPI.com as a string to the apiKey variable in
+src/redux/sagas/searchApiSaga.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
