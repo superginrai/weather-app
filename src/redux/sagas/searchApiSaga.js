@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { takeEvery, call, put as dispatch } from 'redux-saga/effects';
+import swal from 'sweetalert';
 
 const apiKey = '696e9369164547f080e155915201402'
 
@@ -15,7 +16,14 @@ function* searchApi(action) {
             type: 'SEARCH_RESULTS',
             payload: search,
         })
-    } catch (error) { }
+    } catch (error) { 
+        console.log('whare are the tacos?')
+        swal({
+            title: "No Results Found",
+            text: "Please enter a valid city or zip code.",
+            icon: "warning",
+          });
+    }
 
 }
 
