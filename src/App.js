@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './index.css';
-import SearchPage from './components/SearchPage/SearchPage';
 import ForecastPage from './components/ForecastPage/ForecastPage';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 

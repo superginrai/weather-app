@@ -5,8 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -39,13 +37,6 @@ class WeatherCard extends Component {
                 icon: this.props.result.data.current.condition.icon,
                 minTemp: this.props.result.data.forecast.forecastday[this.props.day].day.mintemp_f,
                 maxTemp: this.props.result.data.forecast.forecastday[this.props.day].day.maxtemp_f,
-                
-
-                // image_url: 'images/vitaLove.jpg',
-                // genre_id: this.props.result.genres[0],
-                // description: this.props.result.summary,
-                // complete: false,
-                // sealed: false,
             }
         }
     }
@@ -55,11 +46,6 @@ class WeatherCard extends Component {
         return (
             <div>
                 <Card className={classes.card}>
-                    <CardMedia
-                        // className={classes.media}
-                        // image={this.state.game.image_url}
-                        // title={this.state.game.summary}
-                    />
                     <CardContent>
                         <Typography gutterBottom variant="headline" component="h2">
                             {this.state.weather.location}, {this.state.weather.region}
@@ -76,10 +62,7 @@ class WeatherCard extends Component {
                             Low: {this.state.weather.minTemp}&#176;
                         </Typography>
                         <CardActions>
-                            {/* <Button onClick={this.props.addNewGame(this.state.game)} variant="fab" color="primary" className={classes.button}>
-                                <AddIcon />
-                            </Button> */}
-                            {/* Add this game to your collection */}
+
                         </CardActions>
                     </CardContent>
                 </Card>

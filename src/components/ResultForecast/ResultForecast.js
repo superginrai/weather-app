@@ -3,12 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 
 const styles = theme => ({
     card: {
@@ -24,7 +20,6 @@ const styles = theme => ({
 });
 
 const mapStateToProps = state => ({
-
 });
 
 class ForecastCard extends Component {
@@ -46,11 +41,6 @@ class ForecastCard extends Component {
         return (
             <div>
                 <Card className={classes.card}>
-                    <CardMedia
-                        // className={classes.media}
-                        // image={this.state.game.image_url}
-                        // title={this.state.game.summary}
-                    />
                     <CardContent>
                         <Typography gutterBottom variant="headline" component="h3">
                             {this.state.weather.date}
@@ -60,12 +50,6 @@ class ForecastCard extends Component {
                             High: {this.state.weather.maxTemp}&#176;
                             Low: {this.state.weather.minTemp}&#176;
                         </Typography>
-                        <CardActions>
-                            {/* <Button onClick={this.props.addNewGame(this.state.game)} variant="fab" color="primary" className={classes.button}>
-                                <AddIcon />
-                            </Button> */}
-                            {/* Add this game to your collection */}
-                        </CardActions>
                     </CardContent>
                 </Card>
             </div>
