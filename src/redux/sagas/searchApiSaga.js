@@ -15,9 +15,8 @@ function* searchApi(action) {
         yield dispatch({
             type: 'SEARCH_RESULTS',
             payload: search,
-        })
+        })    
     } catch (error) { 
-        console.log('whare are the tacos?')
         swal({
             title: "No Results Found",
             text: "Please enter a valid city or zip code.",

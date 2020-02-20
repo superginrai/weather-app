@@ -6,6 +6,10 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
 
 const styles = theme => ({
@@ -39,6 +43,7 @@ class WeatherCard extends Component {
                 icon: this.props.result.data.current.condition.icon,
                 minTemp: this.props.result.data.forecast.forecastday[this.props.day].day.mintemp_f,
                 maxTemp: this.props.result.data.forecast.forecastday[this.props.day].day.maxtemp_f,
+                precip: this.props.result.data.forecast.forecastday[this.props.day].day.totalprecip_in, 
             }
         }
     }
@@ -56,17 +61,23 @@ class WeatherCard extends Component {
                         <Typography gutterBottom variant="headline" component="h4">
                             {this.state.weather.condition}
                         </Typography>
-                        <Typography gutterBottom variant="headline" component="h3">
+                        <Typography gutterBottom variant="headline" component="h1">
                             {this.state.weather.temp}&#176;
                         </Typography>
                         <Typography gutterBottom variant="headline" component="h4">
                             High: {this.state.weather.maxTemp}&#176;
                             Low: {this.state.weather.minTemp}&#176;
                         </Typography>
-                        <CardActions>
-
-                        </CardActions>
                     </CardContent>
+                        <ExpansionPanel>
+                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                            </ExpansionPanelSummary>
+                            <ExpansionPanelDetails>
+                            <Typography gutterBottom variant="headline" component="h4">
+                                Forecasted Precipitation: {this.state.weather.precip} in.
+                            </Typography>
+                            </ExpansionPanelDetails>
+                        </ExpansionPanel>
                 </Card>
             </div>
         );
