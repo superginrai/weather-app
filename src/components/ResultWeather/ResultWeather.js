@@ -74,7 +74,7 @@ class WeatherCard extends Component {
                             </ExpansionPanelSummary>
                             <ExpansionPanelDetails>
                             <Typography gutterBottom variant="headline" component="h4">
-                                Forecasted Precipitation: {this.state.weather.precip} in.
+                                Precipitation: {this.state.weather.precip} in.
                             </Typography>
                             </ExpansionPanelDetails>
                         </ExpansionPanel>

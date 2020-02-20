@@ -46,12 +46,15 @@ class ForecastCard extends Component {
                 icon: this.props.result.data.forecast.forecastday[this.props.day].day.condition.icon,
                 minTemp: this.props.result.data.forecast.forecastday[this.props.day].day.mintemp_f,
                 maxTemp: this.props.result.data.forecast.forecastday[this.props.day].day.maxtemp_f,
-                precip: this.props.result.data.forecast.forecastday[this.props.day].day.totalprecip_in,
-                moon: this.props.result.data.forecast.forecastday[this.props.day].day.moon_phase,                
+                precip: this.props.result.data.forecast.forecastday[this.props.day].day.totalprecip_in,            
             },
             expanded: false
         }
     }
+
+    componentDidMount () {
+    
+    };
 
     handleExpandClick = () => {
         this.setState(state => ({ expanded: !state.expanded }));
