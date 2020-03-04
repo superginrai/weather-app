@@ -2,7 +2,7 @@ import axios from 'axios';
 import { takeEvery, call, put as dispatch } from 'redux-saga/effects';
 import swal from 'sweetalert';
 
-const apiKey = 'REPLACE THIS TEXT WITH API KEY AS A STRING'
+const apiKey = '696e9369164547f080e155915201402'
 
 //Sends call to WeatherAPI.com and dispatches results to searchResultsReducer for storage
 function* searchApi(action) {
