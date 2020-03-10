@@ -4,8 +4,6 @@
 
 App is hosted at: https://superginrai.github.io/weather-app/
 
-Before running the app, copy your API key for WeatherAPI.com as a string to the apiKey variable in
-src/redux/sagas/searchApiSaga.js
 
 ## Running App Locally
 
