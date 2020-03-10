@@ -82,35 +82,37 @@ class ForecastPage extends Component {
                                 GET FORECAST</Button>
                         </Grid>
                     </form>
-
-                    <Grid container spacing={3} alignitems={'center'}>       
-                        <Grid item xs={12}>
+                    </Paper>
+            </Grid>
+                {/* <Paper alignitems={'center'} className={classes.paper}> */}
+                    <Grid container spacing={3} alignitems={'center'} justify={'center'} className={classes.paper}>     
+                        <Grid container item xs={12} sm={3}>
                             <ul>
                                 {this.props.searchResults.map(result =>
                                     <ResultWeather key={result.id} result={result} day={0}/>)}
                             </ul>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid container item xs={12} sm={3}>
                             <ul>
                                 {this.props.searchResults.map(result =>
                                     <ResultForecast key={result.id} result={result} day={1}/>)}
                             </ul>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid container item xs={12} sm={3}>
                             <ul>
                                 {this.props.searchResults.map(result =>
                                     <ResultForecast key={result.id} result={result} day={2}/>)}
                             </ul>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid container item xs={12} sm={3}>
                             <ul>
                                 {this.props.searchResults.map(result =>
                                     <ResultForecast key={result.id} result={result} day={3}/>)}
                             </ul>
                         </Grid>
                     </Grid>
-                </Paper>
-            </Grid>
+                {/* </Paper> */}
+           {/* </Grid> */}
         </div>
         );
     }
