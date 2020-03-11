@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import NavigationIcon from '@material-ui/icons/Navigation';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ResultWeather from '../ResultWeather/ResultWeather'
@@ -25,6 +29,12 @@ const styles = theme => ({
       marginTop: '50px',
       color: theme.palette.text.secondary,
   },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
 });
 
 
@@ -39,6 +49,7 @@ class ForecastPage extends Component {
 
     this.state = {
         search: '',
+        testResults: '',
     };
 }
   
@@ -60,13 +71,36 @@ class ForecastPage extends Component {
     this.setState({   
         search: '',        
     });
-
   };
+
+  runTest = () => event => {
+    axios.post(`https://api.ghostinspector.com/v1/tests/5e6917c79fb56f1f3051c3bb/execute/?apiKey=520aa85b0125ef82561ae27592d568bba676063c`)
+      .then(function (response) {
+
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    console.log('ghost in the machine');
+  };  
 
   render() {
        const { classes } = this.props;
       return (
         <div className={classes.root}>
+
+            <Fab
+                onClick={this.runTest()}
+                variant="extended"
+                size="small"
+                color="primary"
+                aria-label="run test"
+                className={classes.margin}
+                >
+                <NavigationIcon className={classes.extendedIcon} />
+                Run Test{this.state.testResults}
+            </Fab>
             <Grid container spacing={3} justify={'center'}>
                 <Paper alignitems={'center'} className={classes.paper}>
                     <form onSubmit={this.apiCall}>
