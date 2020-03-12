@@ -74,7 +74,7 @@ class ForecastPage extends Component {
   };
 
   runTest = () => event => {
-    axios.post(`https://api.ghostinspector.com/v1/tests/5e69545d9fb56f1f305725be/execute/?apiKey=520aa85b0125ef82561ae27592d568bba676063c`)
+    axios.post(`https://api.ghostinspector.com/v1/tests/5e697bc953077b2430bcdf2a/execute/?apiKey=520aa85b0125ef82561ae27592d568bba676063c`)
       .then(function (response) {
         swal({
             title: `Test Passed: ${JSON.stringify(response.data.data.passing)}`,
