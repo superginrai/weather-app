@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
 import swal from 'sweetalert';
 import NavigationIcon from '@material-ui/icons/Navigation';
 import PropTypes from 'prop-types';
@@ -75,10 +74,10 @@ class ForecastPage extends Component {
   };
 
   runTest = () => event => {
-    axios.post(`https://api.ghostinspector.com/v1/tests/5e697bc953077b2430bcdf2a/execute/?apiKey=520aa85b0125ef82561ae27592d568bba676063c`)
+    axios.post(`https://api.ghostinspector.com/v1/tests/5e69545d9fb56f1f305725be/execute/?apiKey=520aa85b0125ef82561ae27592d568bba676063c`)
       .then(function (response) {
         swal({
-            title: `Test Passing: ${JSON.stringify(response.data.data.passing)}`,
+            title: `Test Passed: ${JSON.stringify(response.data.data.passing)}`,
             text:  "Complete test results logged.",
             icon: "info",
           });
