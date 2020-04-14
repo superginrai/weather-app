@@ -94,7 +94,7 @@ class ForecastPage extends Component {
       return (
         <div className={classes.root}>
 
-            <Fab
+            {/* <Fab
                 onClick={this.runTest()}
                 variant="extended"
                 size="small"
@@ -104,7 +104,7 @@ class ForecastPage extends Component {
                 >
                 <NavigationIcon className={classes.extendedIcon} />
                 Run Test{this.state.testResults}
-            </Fab>
+            </Fab> */}
             <Grid container spacing={3} justify={'center'}>
                 <Paper alignitems={'center'} className={classes.paper}>
                     <form onSubmit={this.apiCall}>
@@ -122,7 +122,6 @@ class ForecastPage extends Component {
                     </form>
                     </Paper>
             </Grid>
-                {/* <Paper alignitems={'center'} className={classes.paper}> */}
                     <Grid container spacing={3} alignitems={'center'} justify={'center'} className={classes.paper}>     
                         <Grid container item xs={12} sm={3}>
                             <ul>
@@ -149,8 +148,6 @@ class ForecastPage extends Component {
                             </ul>
                         </Grid>
                     </Grid>
-                {/* </Paper> */}
-           {/* </Grid> */}
         </div>
         );
     }
